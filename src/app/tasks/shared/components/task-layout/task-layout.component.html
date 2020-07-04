@@ -1,0 +1,53 @@
+<div class="button-bar">
+    <div class="form-control">
+        <input class="input-serch" type="text" placeholder="Поиск..." [(ngModel)]="search">
+    </div>
+    <div class="app__button">
+     <!--   <button class="btn btn-add"
+        (click)="addUser($event)">Добавить задачу</button>-->
+    </div> 
+</div>
+<div class="app__user">
+    <div class="app__user-list">
+        <table>
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Заказчик</th>
+                <th>Адрес</th>
+                <th>Дата заявки</th>
+                <th>Выполнена</th>
+                <th>События</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr *ngFor="let task of tasks; let idx = index">
+                        <td>{{ idx + 1 }}</td>
+                        <td></td>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.customer }}</td>
+                        <td>{{ task.dateStart }}</td>
+                        <!--<td>
+                            <a class="btn btn-link open"
+                            [routerLink]="['/admin','user', user.id, 'edit']"
+                            (click)="showEdit(user.id)"> Открыть</a>
+                            <a (click)="remove(user.id)">Удалить</a>
+                        </td>-->
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+        <div  class="app__user-form">
+            <app-task-form>
+            </app-task-form>
+        </div>
+<!--    <div  class="app__user-form">
+
+        <div *ngIf="visableUser">
+            <app-user-form>
+            </app-user-form></div>
+            
+        <div *ngIf="!visableUser">
+                <router-outlet></router-outlet></div>
+    </div>--> 
+</div>
